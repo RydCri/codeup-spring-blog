@@ -4,11 +4,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-public class FirstController {
-//    @PostMapping("/pizzaorder")
-//    public String placeOrder(@RequestParam String sauce, String cheese, String toppins){
-//        return
-//    }
+public class HenloController {
+@GetMapping("/henlo")
+    public String henlo(){
+    return "henlo";
+}
     @GetMapping("/hello")
     @ResponseBody
     public String Hello(@RequestParam(defaultValue = "true")boolean uppercase){ //defaultValue is 'true' otherwise throws bad request
@@ -25,3 +25,6 @@ public class FirstController {
         return "<h1 style='text-align:center;'>" + "Hello " + name + " " + lname + "</h1>";
     }
 }
+
+
+
