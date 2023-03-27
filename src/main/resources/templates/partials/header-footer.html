@@ -1,0 +1,62 @@
+
+<head th:fragment="header">
+  <meta charset="UTF-8">
+</head>
+<style th:fragment="header-footer-style">
+.navbar {
+list-style: none;
+}
+
+.navbar li {
+display: inline;
+}
+
+li a {
+  color:white;
+  font-size:1.3em;
+  text-decoration: none;
+}
+li a:hover{
+  background: white ;
+  color:black;
+}
+footer {
+  bottom: 0;
+  color:white;
+  font-size:1.3em;
+  position: absolute;
+}
+@media (max-width:500px) {
+  .footer-menu ul{
+    display: flex;
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+}
+@media (max-width:500px) {
+  .navbar{
+    display: flex;
+    flex-direction: column;
+    z-index:10;
+  }
+}
+</style>
+
+<!--<nav th:replace="partials/header-footer :: navbar"></nav>-->
+<nav th:fragment="navbar">
+  <ul class="navbar">
+    <li><a href = "/">Home</a></li>
+    <li><a href = "/about">About</a></li>
+    <li><a href = "/posts">Posts</a></li>
+    <li><a href = "/logout">Logout</a></li>
+  </ul>
+</nav>
+
+
+<!--<footer th:replace="partials/header-footer :: footer"></footer>-->
+<footer th:fragment="footer">
+  <div class=”footer-bottom”>
+<p>Footer</p>
+  </div>
+</footer>
+
