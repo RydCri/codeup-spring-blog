@@ -1,4 +1,4 @@
-package com.codeup.codeupspring.blog.controllers;
+package models;
 
 import java.io.Serializable;
 
