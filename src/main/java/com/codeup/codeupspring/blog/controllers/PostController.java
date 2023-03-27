@@ -1,17 +1,28 @@
 package com.codeup.codeupspring.blog.controllers;
 
+import models.Post;
+import models.Product;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import static org.springframework.web.bind.annotation.RequestMethod.GET;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 @Controller
 public class PostController {
 private int id;
     @GetMapping(path = "/posts")
-    @ResponseBody
-    public String postIndex() {
-        return "../src/resources/postIndex";
+
+    public String postIndex(Model model) {
+        List<Post> posts = new ArrayList<>(Arrays.asList(
+            new Post("I'm leaving showbusiness", "I just think I'm not funny anymore."),
+            new Post("you never hear about quicksand anymore","idk, it's like, you just used to hear about it more"),
+            new Post("Dogs don't like me", "I'm not a bad person, I like Dogs, why don't they like me back?")
+        ));
+        model.addAttribute("posts",posts);
+        return "post/index";
     }
     @GetMapping(path = "/posts/{id}")
     @ResponseBody
