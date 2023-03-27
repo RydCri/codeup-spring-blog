@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang ="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Dice Game</title>
+</head>
+<body>
+<style>
+    body,html {
+        margin:0;
+        padding:0;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        background: #a1a1;
+        color:white;
+        text-shadow: 1px 1px 0 cyan;
+    }
+</style>
+<h1>Roll the Dice</h1>
+
+<form action="/roll/{n}">
+    <input type="number">
+    <input type="submit">
+</form>
+</body>
+</html>

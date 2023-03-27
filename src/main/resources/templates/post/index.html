@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Posts</title>
+</head>
+<body>
+<style>
+    html {
+        background:black;
+    }
+    body{
+        margin:20px;
+        padding:20px;
+        background-image: linear-gradient(90deg,orange,cyan);
+        text-shadow: 1px 1px 0 #999;
+    }
+    div {
+        background: black;
+        display: flex;
+        color:white;
+        padding:1em;
+        justify-content: start;
+        align-content: center;
+        flex-direction: column;
+    }
+    span {
+        color:white;
+    }
+    button {
+        scale: .8;
+        display: inline-block;
+        width:5%;
+        color:white;
+        padding:1em;
+        margin:1px;
+        border-radius: 5px;
+        border: 1px solid white;
+        background:seagreen;
+
+    }
+</style>
+<div>
+<div th:each="post : ${posts}">
+    <h2>Post </h2>
+    <h3 style="margin:2px;padding:0;color:orange!important;"><p th:text="${post.title}"></p></h3>
+    <h4 style="margin:2px;padding:0;color:orange!important;"><br> <span th:text="${post.body}"></span></h4>
+    <br>
+    <div style="display:inline;"><button>Reply</button> <button style="background:red;">Report</button></div>
+</div>
+</div>
+
+
+</body>
+</html>
