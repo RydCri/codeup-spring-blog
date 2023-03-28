@@ -1,6 +1,17 @@
-package models;
+package com.codeup.codeupspring.blog.models;
+import jakarta.persistence.*;
 
+@Entity
+@Table(name= "Products")
 public class Product {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+
+    @Column(name = "product_name", nullable = false)
+    private String name;
+    @Column(name = "costInCents", nullable = false)
+    private int costInCents;
 
     public Product(){}
     public Product(long id, String name, int costInCents) {
@@ -33,8 +44,5 @@ public class Product {
         this.costInCents = costInCents;
     }
 
-    private long id;
-    private String name;
-    private int costInCents;
 
 }

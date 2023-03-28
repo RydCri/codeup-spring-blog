@@ -1,4 +1,4 @@
-package models;
+package com.codeup.codeupspring.blog.models;
 
 import java.io.Serializable;
 
