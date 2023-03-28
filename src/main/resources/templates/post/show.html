@@ -10,7 +10,7 @@
 <style >
     body,html{
         font-family: YuMincho, sans-serif;
-        background:black;
+        background:white;
         display: flex;
         justify-content: center;
         flex-flow:nowrap;
@@ -18,7 +18,7 @@
 </style>
 
 <nav th:replace="partials/header-footer :: navbar"></nav>
-<div style="text-indent:1em;color:white;text-shadow:1px 1px 0 black;background-image:linear-gradient(90.75deg,#3d63e8 -6.61%,#5e3de8 4.61%,#e74b90 89.14%,#ed7a7a 107.65%); box-shadow:2px 2px 4px white,-2px 2px 4px white;position:absolute;top:100px;">
+<div style="text-indent:1em;color:black;background-image:linear-gradient(90.75deg,#3d63e8 -6.61%,#5e3de8 4.61%,#e74b90 89.14%,#ed7a7a 107.65%); box-shadow:2px 2px 4px black,2px -2px 4px black,-2px 2px 4px black;position:absolute;top:100px;">
 <div th:each="post : ${posts}">
     <div th:if="${postId == post.id}">
         <h1>Title:</h1>
