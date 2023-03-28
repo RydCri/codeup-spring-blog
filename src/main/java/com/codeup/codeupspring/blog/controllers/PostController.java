@@ -1,6 +1,7 @@
 package com.codeup.codeupspring.blog.controllers;
 
 import com.codeup.codeupspring.blog.models.Post;
+import com.codeup.codeupspring.blog.repositories.PostRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -11,23 +12,22 @@ import java.util.List;
 
 @Controller
 public class PostController {
-  private List<Post> posts = new ArrayList<>(Arrays.asList(
-            new Post(1,"I'm leaving showbusiness", "I just think I'm not funny anymore."),
-            new Post(2,"you never hear about quicksand anymore","idk, it's like, you just used to hear about it more"),
-            new Post(3,"Dogs don't like me", "I'm not a bad person, I like Dogs, why don't they like me back?")
-    ));
+    private PostRepository postDao;
+    public PostController(PostRepository postDao){
+        this.postDao = postDao;
+    }
     @GetMapping(path = "/posts")
-
-    public String postIndex(Model model) {
-        model.addAttribute("posts",posts);
+    public String postIndex(Model m) {
+         List<Post> posts = postDao.findAll();
+        m.addAttribute("posts",posts);
         return "post/index";
     }
     @GetMapping(path = "/posts/{n}")
 
-    public String postId(@PathVariable int n,Model model) {
-
-        model.addAttribute("posts",posts);
-        model.addAttribute("postId", n);
+    public String postId(@PathVariable int n,Model m) {
+        List<Post> posts = postDao.findAll();
+        m.addAttribute("posts",posts);
+        m.addAttribute("postId", n);
         return "post/show";
     }
     @GetMapping("/posts/create")
@@ -42,10 +42,4 @@ public class PostController {
     }
 
 }
-//    GET	/posts	posts index page
-//    GET	/posts/{id}	view an individual post
-//    GET	/posts/create	view the form for creating a post
-//    POST	/posts/create
-//}//    public String placeOrder(@RequestParam String sauce, String cheese, String toppins){
-////        return
-////    }
+
