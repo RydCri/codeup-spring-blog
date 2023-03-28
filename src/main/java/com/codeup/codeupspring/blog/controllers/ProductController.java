@@ -19,7 +19,7 @@ public class ProductController {
 
     @GetMapping("/products")
     public String getProductIndex(Model model) {
-        List<Product> products =
+        List<Product> products = productsDao.findAll();
         model.addAttribute("products",products);
     return "products/products-index";
     }
