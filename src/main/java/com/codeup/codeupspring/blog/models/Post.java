@@ -1,11 +1,18 @@
 package com.codeup.codeupspring.blog.models;
 
-import java.io.Serializable;
+import jakarta.persistence.*;
 
+import java.io.Serializable;
+@Entity
+@Table(name = "Posts")
 public class Post implements Serializable {
-    private String title;
-    private String body;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @Column(nullable = false)
+    private String title;
+    @Column(nullable = false)
+    private String body;
 
     public Post(){}
     public Post(int id, String title, String body) {

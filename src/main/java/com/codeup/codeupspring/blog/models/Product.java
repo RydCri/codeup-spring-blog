@@ -10,7 +10,7 @@ public class Product {
 
     @Column(name = "product_name", nullable = false)
     private String name;
-    @Column(name = "costInCents", nullable = false)
+    @Column(nullable = false)
     private int costInCents;
 
     public Product(){}
