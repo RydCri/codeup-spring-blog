@@ -14,11 +14,12 @@
         display: flex;
         justify-content: center;
         flex-flow:nowrap;
+        overflow-y: hidden;
     }
 </style>
 
 <nav th:replace="partials/header-footer :: navbar"></nav>
-<div style="text-indent:1em;color:black;background-image:linear-gradient(90.75deg,#3d63e8 -6.61%,#5e3de8 4.61%,#e74b90 89.14%,#ed7a7a 107.65%); box-shadow:2px 2px 4px black,2px -2px 4px black,-2px 2px 4px black;position:absolute;top:100px;">
+<div style="text-indent:1em;color:black;background-image:linear-gradient(90.75deg,#3d63e8 -6.61%,#5e3de8 4.61%,#e74b90 89.14%,#ed7a7a 107.65%); box-shadow:2px 2px 3px black,2px -2px 3px black,-2px -3px 4px black;position:absolute;top:100px;">
 <div th:each="post : ${posts}">
     <div th:if="${postId == post.id}">
         <h1>Title:</h1>

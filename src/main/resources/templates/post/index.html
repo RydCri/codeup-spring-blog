@@ -5,51 +5,46 @@
     <title>Posts</title>
 </head>
 <body>
+<style th:replace="partials/header-footer :: header-footer-style"></style>
+<nav th:replace="partials/header-footer :: navbar"></nav>
+
 <style>
-    html {
-        background:black;
-    }
-    body{
-        margin:20px;
-        padding:20px;
-        background-image: linear-gradient(90deg,orange,cyan);
-        text-shadow: 1px 1px 0 #999;
-    }
-    div {
-        background: black;
+    body,html{
+        font-family: YuMincho, sans-serif;
+        background:white;
         display: flex;
-        color:white;
-        padding:1em;
-        justify-content: start;
-        align-content: center;
-        flex-direction: column;
-    }
-    span {
-        color:white;
+        justify-content: center;
+        flex-flow:nowrap;
+        overflow-y: hidden;
     }
     button {
         scale: .8;
         display: inline-block;
-        width:5%;
+        width:80px;
         color:white;
         padding:1em;
         margin:1px;
         border-radius: 5px;
         border: 1px solid white;
         background:seagreen;
-
+    }
+    p,span,h2 {
+        text-indent: 1em;
+        margin:0;
+        padding: 0;
     }
 </style>
-<div>
+
+    <div style="color:black;background-image:linear-gradient(90.75deg,#3d63e8 -6.61%,#5e3de8 4.61%,#e74b90 89.14%,#ed7a7a 107.65%); box-shadow:2px 2px 3px black,2px -2px 3px black,-2px -3px 4px black;position:absolute;top:100px;">
 <div th:each="post : ${posts}">
     <h2>Post </h2>
-    <h3 style="margin:2px;padding:0;color:orange!important;"><p th:text="${post.title}"></p></h3>
+    <h3 style="filter:emboss(2);margin:2px;padding:0;color:orange!important;"><p th:text="${post.title}"></p></h3>
     <h4 style="margin:2px;padding:0;color:orange!important;"><br> <span th:text="${post.body}"></span></h4>
     <br>
     <div style="display:inline;"><button>Reply</button> <button style="background:red;">Report</button></div>
 </div>
 </div>
 
-
+<footer th:replace="partials/header-footer:: footer"></footer>
 </body>
 </html>
