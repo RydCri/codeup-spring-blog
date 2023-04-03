@@ -5,9 +5,6 @@ import com.codeup.codeupspring.blog.repositories.PostRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 @Controller
@@ -31,15 +28,26 @@ public class PostController {
         return "post/show";
     }
     @GetMapping("/posts/create")
-    @ResponseBody
     public String create() {
-        return "<form method=\"POST\"><button>Submit</button></form>";
+        return "post/create";
     }
     @PostMapping("/posts/create")
-    @ResponseBody
-    public String postSubmit() {
-        return "Creating new post...";
+    public String postSubmit(@RequestParam String title, @RequestParam String body) {
+        Post newpost = new Post(title,body);
+        postDao.save(newpost);
+        return "redirect:/posts";
     }
 
+//    @PostMapping("/posts/edit")
+//    public String editPost(String title, String body){
+//        Post post = new Post(title, body);
+//        postDao.save(post);
+//        return "post/edit";
+//    }
+
+    @DeleteMapping("/posts/{id}")
+    public void deletePost(@PathVariable long id) {
+        postDao.deleteById(id);
+    }
 }
 
