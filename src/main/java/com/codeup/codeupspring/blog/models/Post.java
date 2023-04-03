@@ -13,14 +13,9 @@ public class Post implements Serializable {
     private String title;
     @Column(nullable = false)
     private String body;
-
     public Post(){}
-    public Post(int id, String title, String body) {
-        this.id = id;
-        this.title = title;
-        this.body = body;
+    public Post(String title, String body){}
 
-    }
     public int getId() {
         return id;
     }
