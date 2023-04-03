@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Post</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<!--<style th:replace="partials/header-footer:: header-footer-style"></style>-->
+<!--<nav th:replace="partials/header-footer:: navbar"></nav>-->
+
+<section>
+<form action="/posts/create" method="post">
+  <label for="title">Title</label>
+  <input id="title" name="title" type="text">
+    <label for="body">Body</label>
+  <input type="text" id="body" name="body">
+  <input type="submit">
+</form>
+</section>
+
+
+
+<!--<footer th:replace="partials/header-footer:: footer"></footer>-->
+</body>
+</html>
